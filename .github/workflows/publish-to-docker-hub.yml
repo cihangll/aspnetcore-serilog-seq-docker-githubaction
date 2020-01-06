@@ -1,0 +1,19 @@
+name: Demo Project Publish Docker Hub
+on:
+  # Trigger the workflow on push request, but only for the master branch
+  push:
+    branches:
+      - master
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Build and publish to docker hub
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          # Bu alanı `dockerHubId/projeAdi:versiyon` olacak şekilde güncelleyin.
+          name: cihangll/aspnetcore-serilog-seq-docker-githubaction
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          workdir: DemoApplication.Web/
