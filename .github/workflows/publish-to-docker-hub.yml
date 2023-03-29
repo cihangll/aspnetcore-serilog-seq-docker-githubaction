@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build and publish to docker hub
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           # Bu alanı `dockerHubId/projeAdi:versiyon` olacak şekilde güncelleyin.
           name: cihangll/aspnetcore-serilog-seq-docker-githubaction
